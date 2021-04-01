@@ -11,7 +11,9 @@ const Admin = () => {
     const onSubmit = data => {
       const productData = {
         name: data.name,
-        imageURL: imageURL
+        imageURL: imageURL,
+        price: data.price,
+        weight: data.weight
       };
       const url = `http://localhost:5055/adminPanel`;
       
@@ -82,6 +84,8 @@ const Admin = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <input name="name" defaultValue="New Product" ref={register} />
+            <input name="price" defaultValue="Price" ref={register} />
+            <input name="weight" defaultValue="weight" ref={register} />
             <input name="exampleRequired" type="file" onChange={handleImageUpload} />
             {errors.exampleRequired && <span>This field is required</span>}
             <input type="submit" placeholder="Submit" />

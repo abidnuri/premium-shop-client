@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Button, Navbar, Nav } from 'react-bootstrap';
 import {
     Link
 } from "react-router-dom";
@@ -16,7 +16,7 @@ const Header = () => {
                         <Nav.Link as={Link} to="/orders" className="text-white px-3">Orders</Nav.Link>
                         <Nav.Link as={Link} to="/admin" className="text-white px-3">Admin</Nav.Link>
                         <Nav.Link as={Link} to="/deals" className="text-white px-3">Deals</Nav.Link>
-                        <Nav.Link as={Link} to="/login" className="text-white px-3">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/signin" className="text-white px-3">Login</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
