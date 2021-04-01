@@ -18,7 +18,7 @@ const Home = () => {
         <Container>
             <Row className="mx-auto">
                 {
-                    products.map(pd => <SingleProduct key={pd.id} pd={pd} />)
+                    products.map(pd => <SingleProduct key={pd._id} pd={pd} />)
                 }
             </Row>
         </Container>

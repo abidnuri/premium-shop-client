@@ -22,11 +22,12 @@ export const userContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  <p>Logged in User: {loggedInUser.name}</p>
+  <p className="mt-5 pt-5">Logged in User: {loggedInUser.name}</p>
+  console.log(loggedInUser);
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
-        <Header />
+         <Header /> 
         <Switch>
           <Route exact path="/">
             <Home />

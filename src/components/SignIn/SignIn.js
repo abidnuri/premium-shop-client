@@ -9,15 +9,6 @@ import { userContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 
 const SignIn = () => {
-    const [formData, setFormData] = useState({
-        name: null,
-        email: null,
-        password: null
-    });
-    const [user, setUser] = useState({});
-
-    const [option, setOption] = useState('registar');
-
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const history = useHistory();
     const location = useLocation();
@@ -36,8 +27,9 @@ const SignIn = () => {
                 var credential = result.credential;
                 var token = credential.accessToken;
                 const { displayName, email } = result.user;
+                console.log(result.user);
                 const signedInUser = { name: displayName, email: email };
-                // console.log(signedInUser);
+                console.log(signedInUser);
                 setLoggedInUser(signedInUser);
 
                 history.replace(from);
