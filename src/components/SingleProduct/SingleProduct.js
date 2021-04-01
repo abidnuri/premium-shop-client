@@ -4,11 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import {
     BrowserRouter as Router,
-    Link
+    Link,
+    useHistory,
+    useParams
 } from "react-router-dom";
 
 const SingleProduct = (props) => {
-    const { id, name, imageURL, price, weight } = props.pd;
+    const { productId } = useParams();
+    const history = useHistory();
+
+    const { _id, name, imageURL, price, weight } = props.pd;
+    // console.log(props.pd);
     return (
         <Col md={4} className="p-3">
             <Card className="p-5">
@@ -16,7 +22,7 @@ const SingleProduct = (props) => {
                 <Card.Body className="text-center">
                     <Card.Title className="font-weight-bold">{name}-{weight}gm</Card.Title>
                     <span className="font-weight-bold h4">Price: ${price}</span>
-                    <Button as={Link} to={`products/${id}`} variant="dark">Buy Now <FontAwesomeIcon icon={faShoppingBag} /></Button>
+                    <Button as={Link} onClick={() => history.push(`/productdetails/${_id}`)} variant="dark">Buy Now <FontAwesomeIcon icon={faShoppingBag} /></Button>
                 </Card.Body>
             </Card>
         </Col>
