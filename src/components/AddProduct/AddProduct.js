@@ -15,7 +15,7 @@ const AddProduct = () => {
             imageURL: imageURL,
         };
         console.log(data);
-        const url = `http://localhost:5000/addEvent`;
+        const url = `https://young-hamlet-23452.herokuapp.com/addEvent`;
 
         fetch(url, {
             method: "POST",
