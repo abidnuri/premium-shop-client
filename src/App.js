@@ -1,33 +1,34 @@
 import './App.css';
+import NotFound from './Components/NotFound/NotFound';
+import { createContext, useState } from 'react';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import Home from './Components/Home/Home';
+import SignIn from './Components/SignIn/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddProduct from './Components/AddProduct/AddProduct';
+import LoadProduct from './Components/LoadProduct/LoadProduct';
+import Checkout from './Components/Checkout/Checkout';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Orders from './Components/Orders/Orders';
+import Admin from './Components/Admin/Admin';
+import EditProduct from './Components/EditProduct/EditProduct';
+import Deals from './Components/Deals/Deals';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
-import Footer from './components/Footer/Footer';
-import SingleProduct from './components/SingleProduct/SingleProduct';
-import Home from './components/Home/Home';
-import Header from './components/Header/Header';
-import NoMatch from './components/NoMatch/NoMatch'
-import ProductDetails from './components/ProductDetails/ProductDetails';
-import AddProduct from './components/AddProduct/AddProduct';
-import Admin from './components/Admin/Admin';
-import SignIn from './components/SignIn/SignIn';
-import { createContext, useState } from 'react';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Deals from './components/Deals/Deals';
 
-export const userContext = createContext();
+export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
-  <p className="mt-5 pt-5">Logged in User: {loggedInUser.name}</p>
-  console.log(loggedInUser);
+  const [loggedinUser, setLoggedinUser] = useState({});
   return (
-    <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedinUser, setLoggedinUser]}>
       <Router>
-         <Header /> 
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -35,28 +36,39 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/single">
-            <SingleProduct />
-          </Route>
           <Route path="/deals">
             <Deals />
           </Route>
-          <Route path="/productdetails/:productId">
-            <ProductDetails />
-          </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/checkout/:_id">
+            <Checkout />
+          </PrivateRoute >
+          <PrivateRoute path="/orders">
+            <Orders />
+          </PrivateRoute >
+          <PrivateRoute path="/admin">
             <Admin />
-          </Route>
+          </PrivateRoute >
+          <PrivateRoute path="/editproduct">
+            <EditProduct />
+          </PrivateRoute >
+
           <Route path="/signin">
             <SignIn />
           </Route>
+          <Route path="/addProduct">
+            <AddProduct />
+          </Route>
+          <Route path="/loadProduct">
+            <LoadProduct />
+          </Route>
+
           <Route path="*">
-            <NoMatch />
+            <NotFound />
           </Route>
         </Switch>
         <Footer />
       </Router>
-    </userContext.Provider >
+    </UserContext.Provider>
   );
 }
 

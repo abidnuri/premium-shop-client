@@ -1,9 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDVOmFtzlqEXM6jYckfWwSysgyqGz6QZ1A",
-    authDomain: "premium-shop-343a5.firebaseapp.com",
-    projectId: "premium-shop-343a5",
-    storageBucket: "premium-shop-343a5.appspot.com",
-    messagingSenderId: "985788285184",
-    appId: "1:985788285184:web:83fa87e20235d8e86cf3e5"
-  };
-  export default firebaseConfig;
+  apiKey: "AIzaSyAvQnJ4aE02VU31EeuuMfnn4i9RYQvQee0",
+  authDomain: "premium-shopbd.firebaseapp.com",
+  projectId: "premium-shopbd",
+  storageBucket: "premium-shopbd.appspot.com",
+  messagingSenderId: "327958166085",
+  appId: "1:327958166085:web:9a95877537f9d96d1b412c",
+  measurementId: "G-RR3M9T2R5R"
+};
+export default firebaseConfig;

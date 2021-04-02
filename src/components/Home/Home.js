@@ -1,24 +1,24 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import LoadProduct from '../LoadProduct/LoadProduct';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { Container, Row } from 'react-bootstrap';
-import SingleProduct from '../SingleProduct/SingleProduct';
 
 const Home = () => {
-    const [products, setProducts] = useState([]);
+    const [events, setEvents] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5055/products')
+        fetch('http://localhost:5000/events')
             .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                setProducts(data);
-            })
+            .then(data => setEvents(data))
     }, [])
+
     return (
         <Container>
-            <Row className="mx-auto">
+            <Row className="text-center">
                 {
-                    products.map(pd => <SingleProduct key={pd._id} pd={pd} />)
+                    events.length === 0 && <CircularProgress color="primary" />
+                }
+                {
+                    events.map(event => <LoadProduct event={event}></LoadProduct>)
                 }
             </Row>
         </Container>
