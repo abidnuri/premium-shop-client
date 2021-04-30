@@ -4,8 +4,7 @@ Premium Eshopper Project  [Live Link](https://premium-shopbd.web.app/).
 
 ## Available Feature
 
-1. Front-End Responsive Design and Dynamic
-2. Login System
-3. Order Placed and Checkout
-4. Data Load From Server
-5. Premium Eshopper Project
+1.	This is a MERN Stack responsive project.
+2.	Firebase authentication and placed order system for users.
+3.	Created with React.js, MongoDB, Node.js, Express.js, React Router, Bootstrap, etc.
+4.	Incorporated API calls to several applications and stored data efficiently in our MongoDB backend.
